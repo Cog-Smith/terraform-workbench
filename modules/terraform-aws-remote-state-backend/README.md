@@ -1,4 +1,4 @@
-# aws_db_instance
+# tf-state-backend
 
 ## Module Usage
 
@@ -57,6 +57,10 @@ terraform {
 ...
 
 ```
+
+## Overview
+This module will setup a location for your tfstate files. This uses the s3 bucket and replication services available to you in the AWS sphere. To lock the tfstate file and prevent multiple deployments, we utilize dynamodb to create a locking table. This setup also deploys with its own unique keep per backend for protection. The KMS keys also have an alias if you want to observer portfolio level items. The main input is the project variable. This will add that to a setup name structure in the resources. 
+
 ## Requirements
 
 | Name | Version |
